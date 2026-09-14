@@ -1,0 +1,14 @@
+<rect width="800" height="600" fill="url(#bg)"/>
+<circle cx="624" cy="120" r="224.00000000000003" fill="url(#glow)"/>
+<ellipse cx="400" cy="468" rx="320" ry="70" fill="#DFCBA5"/>
+<ellipse cx="400" cy="456" rx="288" ry="62" fill="#D0B88A"/>
+<ellipse cx="400" cy="318" rx="216" ry="72" fill="#FFFFFF" stroke="#D9C9A6" stroke-width="4"/>
+<ellipse cx="400" cy="312" rx="152" ry="52" fill="#F3ECD9"/>
+<path d="M 272 312 C 240 192, 336 156, 400 156 C 464 156, 560 192, 528 312 C 400 366, 272 312, 272 312 Z" fill="#6D9450"/>
+<path d="M 312 300 C 288 216, 360 192, 400 192 C 440 192, 512 216, 488 300 C 400 336, 312 300, 312 300 Z" fill="#A35A2E"/>
+<circle cx="352" cy="240" r="8" fill="#FFFFFF" opacity="0.7"/>
+<ellipse cx="264" cy="270" rx="16" ry="26" fill="#FFFFFF" opacity="0.6" transform="rotate(-24 264 270)"/>
+<ellipse cx="536" cy="270" rx="16" ry="26" fill="#FFFFFF" opacity="0.6" transform="rotate(24 536 270)"/>
+<line x1="592" y1="180" x2="512" y2="372" stroke="#16293E" stroke-opacity="0.7" stroke-width="5" stroke-linecap="round"/><line x1="632" y1="204.00000000000003" x2="552" y2="396" stroke="#E89633" stroke-width="5" stroke-linecap="round"/>
+<text x="400" y="38" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="600" letter-spacing="3" fill="#E89633" opacity="0.9">KAMPOENG BIRU</text>
+<text x="400" y="420" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="700" letter-spacing="4" fill="#16293E" opacity="0.55">SATE AYAM</text><text x="400" y="450" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="500" letter-spacing="2" fill="#16293E" opacity="0.35">GANTI DENGAN FOTO ASLI</text>

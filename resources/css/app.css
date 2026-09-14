@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-cream-50 font-sans text-navy-900 antialiased;
+    }
+
+    ::selection {
+        @apply bg-accent-500 text-white;
+    }
+
+    img {
+        @apply max-w-full;
+    }
+
+    [x-cloak] {
+        display: none !important;
+    }
+}
+
+@layer utilities {
+    /* Reveal on scroll. State awal (elemen disembunyikan) HANYA aktif saat
+       JavaScript berjalan (html.js--reveal), sehingga konten tetap terlihat
+       bila JavaScript gagal dimuat. */
+    [data-reveal] {
+        will-change: opacity, transform;
+    }
+
+    .js--reveal [data-reveal]:not(.is-revealed) {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+            opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+            transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .js--reveal [data-reveal].is-revealed {
+        opacity: 1;
+        transform: none;
+        transition:
+            opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+            transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Hero entrance — hanya berjalan saat JS siap; elemen muncul berurutan. */
+    .js--reveal [data-hero] .hero-item {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+            opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+            transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .js--reveal [data-hero].is-loaded .hero-item {
+        opacity: 1;
+        transform: none;
+    }
+
+    .hero-d-1 { transition-delay: 0.1s; }
+    .hero-d-2 { transition-delay: 0.2s; }
+    .hero-d-3 { transition-delay: 0.3s; }
+    .hero-d-4 { transition-delay: 0.4s; }
+    .hero-d-5 { transition-delay: 0.5s; }
+    .hero-d-6 { transition-delay: 0.6s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .js--reveal [data-reveal]:not(.is-revealed),
+    .js--reveal [data-reveal].is-revealed,
+    .js--reveal [data-hero] .hero-item,
+    .js--reveal [data-hero].is-loaded .hero-item {
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+@layer components {
+    .container-x {
+        @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+    }
+
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold transition duration-300;
+    }
+
+    .btn-accent {
+        @apply btn bg-accent-500 text-white shadow-lg shadow-accent-500/30 hover:-translate-y-0.5 hover:bg-accent-600;
+    }
+
+    .btn-outline-light {
+        @apply btn border border-white/20 text-cream-50 hover:bg-white/10;
+    }
+
+    .btn-navy {
+        @apply btn bg-navy-900 text-white hover:-translate-y-0.5 hover:bg-navy-800;
+    }
+
+    .eyebrow {
+        @apply text-xs font-bold uppercase tracking-[0.3em] text-accent-600;
+    }
+
+    .eyebrow-light {
+        @apply text-xs font-bold uppercase tracking-[0.3em] text-accent-400;
+    }
+
+    .section-title {
+        @apply font-display mt-3 text-3xl font-bold tracking-tight sm:text-4xl;
+    }
+
+    .card {
+        @apply rounded-2xl bg-white shadow-card ring-1 ring-navy-950/5;
+    }
+
+    .form-input {
+        @apply mt-2 w-full rounded-xl border border-navy-200 bg-cream-50 px-4 py-3 text-sm text-navy-900 placeholder-navy-300 outline-none transition focus:border-accent-500 focus:ring-2 focus:ring-accent-500/30;
+    }
+}

@@ -1,0 +1,13 @@
+<rect width="800" height="600" fill="url(#bg)"/>
+<circle cx="192" cy="120" r="192" fill="url(#glow)"/>
+<ellipse cx="400" cy="468" rx="304" ry="64" fill="#DFCBA5"/>
+<ellipse cx="400" cy="456" rx="272" ry="56" fill="#D0B88A"/>
+<path d="M 272 168.00000000000003 L 528 168.00000000000003 L 512 396 Q 400 430 288 396 Z" fill="#DFE9F3" stroke="#B8C8DA" stroke-width="4"/>
+<rect x="276.8" y="182.00000000000003" width="250.88" height="207.99999999999997" rx="6" fill="#C08B3C" opacity="0.85"/>
+<rect x="276.8" y="296.40000000000003" width="250.88" height="93.6" fill="#16293E" opacity="0.25"/>
+<rect x="288" y="194.00000000000003" width="43.52" height="52" rx="6" fill="#FFFFFF" opacity="0.75" transform="rotate(7 288 194.00000000000003)"/>
+<rect x="624" y="194.00000000000003" width="38.4" height="48" rx="6" fill="#FFFFFF" opacity="0.75" transform="rotate(-6 624 194.00000000000003)"/>
+<line x1="368" y1="138.00000000000003" x2="438.4" y2="184.00000000000003" stroke="#C8A1E0" stroke-width="7" stroke-linecap="round"/>
+<line x1="376.96" y1="146.00000000000003" x2="423.04" y2="166.00000000000003" stroke="#FFFFFF" stroke-width="3" opacity="0.7"/>
+<text x="400" y="38" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="600" letter-spacing="3" fill="#E89633" opacity="0.9">KAMPOENG BIRU</text>
+<text x="400" y="420" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="700" letter-spacing="4" fill="#16293E" opacity="0.55">ES TEH MANIS</text><text x="400" y="430" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="500" letter-spacing="2" fill="#16293E" opacity="0.35">GANTI DENGAN FOTO ASLI</text>

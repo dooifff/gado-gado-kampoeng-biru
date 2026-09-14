@@ -1,0 +1,24 @@
+<rect width="800" height="600" fill="url(#bg)"/>
+<rect y="0" width="800" height="330" fill="#EDE4CE"/>
+<circle cx="128" cy="80" r="150" fill="url(#glow)"/>
+<circle cx="680" cy="90" r="160" fill="#16293E" opacity="0.06"/>
+<rect x="96" y="72" width="240" height="180" rx="10" fill="#D9E4EE"/>
+<line x1="216" y1="72" x2="216" y2="252" stroke="#AFC6DA" stroke-width="6"/>
+<line x1="96" y1="162" x2="336" y2="162" stroke="#AFC6DA" stroke-width="6"/>
+<rect x="108" y="84" width="216" height="156" rx="8" fill="#EAF1FA"/>
+<g>
+  <line x1="400" y1="30" x2="400" y2="120" stroke="#16293E" stroke-width="4" stroke-opacity="0.7"/>
+  <path d="M 366 120 L 434 120 L 424 252 L 376 252 Z" fill="#6D9450"/>
+  <circle cx="400" cy="228" r="10" fill="#FFF4DC" opacity="0.9"/>
+</g>
+<rect x="496" y="180" width="144" height="144" rx="12" fill="#CFA87C"/>
+<rect x="544" y="144" width="48" height="36" rx="6" fill="#C09A70"/>
+<ellipse cx="568" cy="216" rx="36" ry="40" fill="#8FAE6E"/>
+<ellipse cx="568" cy="216" rx="24" ry="28.000000000000004" fill="#54783D"/>
+<ellipse cx="400" cy="432" rx="336" ry="80" fill="#E9DCC0"/>
+<ellipse cx="400" cy="432" rx="272" ry="64" fill="#F4ECDB"/>
+<ellipse cx="328" cy="396" rx="160" ry="50" fill="#FFFFFF" stroke="#D9C9A6" stroke-width="3"/>
+<ellipse cx="472" cy="420" rx="136" ry="44" fill="#FFFFFF" stroke="#D9C9A6" stroke-width="3"/>
+<path d="M 296 372 Q 328 312 376 372 Z" fill="#6D9450"/>
+<text x="400" y="38" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="600" letter-spacing="3" fill="#E89633" opacity="0.9">KAMPOENG BIRU</text>
+<text x="400" y="420" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="700" letter-spacing="4" fill="#16293E" opacity="0.55">SENYUM PEMILIK</text><text x="400" y="440" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="500" letter-spacing="2" fill="#16293E" opacity="0.35">GANTI DENGAN FOTO ASLI</text>

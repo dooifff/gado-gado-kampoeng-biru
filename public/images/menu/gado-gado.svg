@@ -1,0 +1,12 @@
+<rect width="800" height="600" fill="url(#bg)"/>
+<circle cx="400" cy="110" r="240" fill="url(#glow)"/>
+<ellipse cx="400" cy="480" rx="304" ry="64" fill="#DFCBA5"/>
+<ellipse cx="400" cy="468" rx="272" ry="56" fill="#D0B88A"/>
+<path d="M 240 336.00000000000006 C 240 432, 560 432, 560 336.00000000000006 L 528 324.00000000000006 C 496 204.00000000000006, 304 204.00000000000006, 272 324.00000000000006 Z" fill="#FFFFFF" stroke="#D9C9A6" stroke-width="4"/>
+<path d="M 296 318.00000000000006 C 272 168.00000000000003, 360 132.00000000000003, 400 132.00000000000003 C 440 132.00000000000003, 528 168.00000000000003, 504 318.00000000000006 C 400 360.00000000000006, 296 318.00000000000006, 296 318.00000000000006 Z" fill="#6D9450"/>
+<path d="M 336 300.00000000000006 C 320 228.00000000000006, 376 204.00000000000006, 400 204.00000000000006 C 424 204.00000000000006, 480 228.00000000000006, 464 300.00000000000006 C 400 330.00000000000006, 336 300.00000000000006, 336 300.00000000000006 Z" fill="#E89633"/>
+<circle cx="360" cy="258.00000000000006" r="6" fill="#FFFFFF" opacity="0.7"/>
+<ellipse cx="280" cy="240.00000000000006" rx="14" ry="22" fill="#FFFFFF" opacity="0.6" transform="rotate(-20 280 240.00000000000006)"/>
+<ellipse cx="520" cy="240.00000000000006" rx="14" ry="22" fill="#FFFFFF" opacity="0.6" transform="rotate(20 520 240.00000000000006)"/>
+<text x="400" y="38" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="600" letter-spacing="3" fill="#E89633" opacity="0.9">KAMPOENG BIRU</text>
+<text x="400" y="420" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="700" letter-spacing="4" fill="#16293E" opacity="0.55">GADO-GADO KAMPOENG</text><text x="400" y="440" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="500" letter-spacing="2" fill="#16293E" opacity="0.35">GANTI DENGAN FOTO ASLI</text>
