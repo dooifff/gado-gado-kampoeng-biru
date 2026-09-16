@@ -50,12 +50,12 @@
 
         <div class="rounded-3xl border border-cream-200 bg-white p-6 shadow-sm lg:self-start">
             <h2 class="mb-5 font-display text-lg font-bold text-navy-950">Foto</h2>
-            <div x-data="{ preview: @js($gallery->image ? asset($gallery->image) : null) }">
+            <div x-data="{ preview: @js($gallery->image ? $gallery->image_url : null) }">
                 <img :src="preview ?? '/images/logo/logo.svg'" alt="Pratinjau foto galeri" class="aspect-[4/3] w-full rounded-2xl border border-cream-200 bg-cream-50 object-cover">
                 <input type="file" name="image" id="image" accept="image/*" {{ $gallery->exists ? '' : 'required' }}
                     @change="const f = $event.target.files[0]; if (f) { const r = new FileReader(); r.onload = e => preview = e.target.result; r.readAsDataURL(f); }"
                     class="mt-4 w-full text-sm text-navy-700 file:mr-3 file:rounded-xl file:border-0 file:bg-navy-950 file:px-4 file:py-2.5 file:text-sm file:font-bold file:text-white hover:file:bg-navy-800">
-                <p class="mt-2 text-xs text-navy-700">JPG, PNG, WEBP, atau SVG. Maks 2 MB.{{ $gallery->exists ? ' Kosongkan untuk mempertahankan foto saat ini.' : '' }}</p>
+                <p class="mt-2 text-xs text-navy-700">JPG, PNG, WEBP, atau SVG. Maks 10 MB.{{ $gallery->exists ? ' Kosongkan untuk mempertahankan foto saat ini.' : '' }}</p>
             </div>
         </div>
     </form>

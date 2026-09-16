@@ -40,14 +40,19 @@ class MenuController extends Controller
             'category' => ['required', 'in:Makanan,Minuman'],
             'price' => ['required', 'integer', 'min:0'],
             'description' => ['nullable', 'string', 'max:1000'],
-            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp,svg', 'max:2048'],
+            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp,svg', 'max:10240'],
             'is_featured' => ['filled'],
             'is_active' => ['filled'],
         ]);
 
-        $data['image'] = $request->hasFile('image')
-            ? store_image($request->file('image'), 'menu', $data['name'])
-            : '/images/logo/logo.svg';
+        $data['image'] = '/images/logo/logo.svg';
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $data['image_data'] = base64_encode((string) $file->get());
+            $data['image_mime'] = $file->getMimeType();
+            $data['image'] = store_image($file, 'menu', $data['name']);
+        }
 
         $data['is_featured'] = $request->boolean('is_featured');
         $data['is_active'] = $request->boolean('is_active');
@@ -69,18 +74,21 @@ class MenuController extends Controller
             'category' => ['required', 'in:Makanan,Minuman'],
             'price' => ['required', 'integer', 'min:0'],
             'description' => ['nullable', 'string', 'max:1000'],
-            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp,svg', 'max:2048'],
+            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp,svg', 'max:10240'],
             'is_featured' => ['filled'],
             'is_active' => ['filled'],
         ]);
 
         if ($request->hasFile('image')) {
+            $file = $request->file('image');
             if ($menu->image) {
                 delete_image($menu->image);
             }
-            $data['image'] = store_image($request->file('image'), 'menu', $data['name']);
+            $data['image'] = store_image($file, 'menu', $data['name']);
+            $data['image_data'] = base64_encode((string) $file->get());
+            $data['image_mime'] = $file->getMimeType();
         } else {
-            unset($data['image']);
+            unset($data['image'], $data['image_data'], $data['image_mime']);
         }
 
         $data['is_featured'] = $request->boolean('is_featured');

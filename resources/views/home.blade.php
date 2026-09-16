@@ -17,7 +17,7 @@
                         '@context' => 'https://schema.org',
                         '@type' => 'Restaurant',
                         'name' => site_setting('name'),
-                        'image' => asset(site_setting('hero')),
+                        'image' => site_setting_image('hero'),
                         'description' => site_setting('description'),
                         'servesCuisine' => 'Masakan Nusantara',
                         'address' => [
@@ -78,7 +78,7 @@
             <div class="hero-item hero-d-3 relative flex justify-center lg:justify-end">
                 <div class="relative w-full max-w-md lg:max-w-none">
                     <img
-                        src="{{ asset(site_setting('hero')) }}"
+                        src="{{ site_setting_image('hero') }}"
                         alt="Ilustrasi menu andalan {{ site_setting('name') }}"
                         class="w-full drop-shadow-2xl"
                         width="640"
@@ -105,7 +105,7 @@
         <div class="container-x grid items-center gap-12 lg:grid-cols-2 lg:gap-16" data-reveal>
             <div>
                 <img
-                    src="{{ asset(site_setting('about')) }}"
+                    src="{{ site_setting_image('about') }}"
                     alt="Suasana {{ site_setting('name') }}"
                     class="w-full rounded-3xl shadow-card ring-1 ring-navy-950/5"
                     loading="lazy"
@@ -223,7 +223,7 @@
                 @foreach ($galleryPreview as $index => $gallery)
                     <a href="{{ route('gallery') }}" class="group relative block overflow-hidden rounded-2xl" aria-label="Lihat foto: {{ $gallery->title }}">
                         <img
-                            src="{{ asset($gallery->image) }}"
+                            src="{{ $gallery->image_url }}"
                             alt="{{ $gallery->title }}"
                             class="{{ $index === 0 ? 'aspect-square' : 'aspect-[4/3]' }} w-full object-cover transition duration-500 group-hover:scale-105"
                             loading="lazy"

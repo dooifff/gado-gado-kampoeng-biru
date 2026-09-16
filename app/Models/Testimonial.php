@@ -14,8 +14,15 @@ class Testimonial extends Model
         'message',
         'rating',
         'image',
+        'image_data',
+        'image_mime',
         'is_active',
     ];
+
+    public function getImageUrlAttribute(): string
+    {
+        return route('media.show', ['model' => 'testimonial', 'ref' => $this->id]);
+    }
 
     protected $casts = [
         'rating' => 'integer',

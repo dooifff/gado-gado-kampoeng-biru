@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Admin') — {{ site_setting('name') }}</title>
-    <link rel="icon" type="image/svg+xml" href="{{ asset(site_setting('logo')) }}">
+    <link rel="icon" type="image/svg+xml" href="{{ site_setting_image('logo') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="min-h-screen bg-cream-50 text-navy-950 antialiased">
@@ -56,7 +56,7 @@
         >
             <div class="flex items-center justify-between gap-3 border-b border-white/10 px-6 py-5">
                 <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3">
-                    <img src="{{ asset(site_setting('logo')) }}" alt="Logo {{ site_setting('name') }}" class="h-10 w-10 rounded-full border border-white/20 object-cover">
+                    <img src="{{ site_setting_image('logo') }}" alt="Logo {{ site_setting('name') }}" class="h-10 w-10 rounded-full border border-white/20 object-cover">
                     <span class="font-display text-sm font-bold leading-tight">
                         Admin<br><span class="text-accent-400">Kampoeng Biru</span>
                     </span>

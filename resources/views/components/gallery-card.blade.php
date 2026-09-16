@@ -7,8 +7,9 @@
     class="group relative block w-full overflow-hidden rounded-2xl text-left shadow-card"
 >
     <img
-        src="{{ asset($gallery->image) }}"
+        src="{{ $gallery->image_url }}"
         alt="{{ $gallery->title }}"
+        onerror="this.onerror=null;this.src='/images/gallery/gallery-01.svg'"
         class="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105"
         loading="lazy"
     >

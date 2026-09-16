@@ -17,7 +17,7 @@
         <div>
             <a href="{{ route('home') }}" class="flex items-center gap-3" aria-label="{{ site_setting('name') }}, beranda">
                 <img
-                    src="{{ asset(site_setting('logo')) }}"
+                    src="{{ site_setting_image('logo') }}"
                     alt="Logo {{ site_setting('name') }}"
                     class="h-11 w-11 rounded-full object-cover"
                 >
@@ -129,9 +129,26 @@
     <div class="border-t border-white/10">
         <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-6 text-center text-xs text-navy-400 sm:flex-row sm:px-6 lg:px-8">
             <p>&copy; {{ date('Y') }} {{ site_setting('name') }}. Seluruh hak cipta dilindungi.</p>
-            <p>
-                {{ site_setting('tagline') }}
-            </p>
+            <p class="mt-0.5 text-navy-500">{{ site_setting('tagline') }}</p>
+            <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
+                @guest
+                    <a href="{{ route('login') }}" class="inline-flex items-center gap-1 transition hover:text-accent-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                        Login / Daftar
+                    </a>
+                @else
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="inline-flex items-center gap-1 transition hover:text-accent-400">
+                            Keluar ({{ Str::limit(auth()->user()->name, 20) }})
+                        </button>
+                    </form>
+                @endguest
+                <span aria-hidden="true" class="text-navy-600">•</span>
+                <a href="{{ route('admin.login') }}" class="inline-flex items-center gap-1 transition hover:text-accent-400">Masuk Admin</a>
+            </div>
         </div>
     </div>
 </footer>

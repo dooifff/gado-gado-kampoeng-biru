@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Masuk Admin — {{ site_setting('name') }}</title>
-    <link rel="icon" type="image/svg+xml" href="{{ asset(site_setting('logo')) }}">
+    <link rel="icon" type="image/svg+xml" href="{{ site_setting_image('logo') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="flex min-h-screen items-center justify-center bg-navy-950 px-4 py-12">
     <div class="w-full max-w-md">
         <a href="{{ route('home') }}" class="mb-8 flex flex-col items-center gap-3 text-center" aria-label="{{ site_setting('name') }}, kembali ke beranda">
-            <img src="{{ asset(site_setting('logo')) }}" alt="Logo {{ site_setting('name') }}" class="h-20 w-20 rounded-full border-2 border-white/20 object-cover shadow-lg">
+            <img src="{{ site_setting_image('logo') }}" alt="Logo {{ site_setting('name') }}" class="h-20 w-20 rounded-full border-2 border-white/20 object-cover shadow-lg">
             <div>
                 <p class="font-display text-xl font-bold text-white">{{ site_setting('name') }}</p>
                 <p class="mt-1 text-sm font-semibold tracking-wide text-accent-400 uppercase">Panel Admin</p>

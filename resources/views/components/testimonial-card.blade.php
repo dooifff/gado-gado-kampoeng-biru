@@ -20,7 +20,7 @@
 
     <figcaption class="mt-6 flex items-center gap-3 border-t border-cream-200 pt-5">
         @if ($testimonial->image)
-            <img src="{{ asset($testimonial->image) }}" alt="{{ $testimonial->name }}" class="h-11 w-11 rounded-full object-cover">
+            <img src="{{ $testimonial->image_url }}" alt="{{ $testimonial->name }}" onerror="this.onerror=null;this.style.display='none'" class="h-11 w-11 rounded-full object-cover">
         @else
             <span class="flex h-11 w-11 items-center justify-center rounded-full bg-navy-900 font-display text-base font-bold text-accent-400">
                 {{ strtoupper(mb_substr($testimonial->name, 0, 1)) }}

@@ -9,6 +9,11 @@
     $waUrl = wa_link();
 @endphp
 
+@php
+    $loginFloating = 'text-navy-100 hover:text-white';
+    $loginSolid = 'text-navy-800 hover:text-accent-600';
+@endphp
+
 <header
     x-data="{ scrolled: false, open: false }"
     x-init="$watch('open', (value) => { document.body.style.overflow = value ? 'hidden' : '' })"
@@ -20,7 +25,7 @@
     <nav class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:h-20 lg:px-8" aria-label="Navigasi utama">
         <a href="{{ route('home') }}" class="flex items-center gap-3" aria-label="{{ site_setting('name') }}, kembali ke beranda">
             <img
-                src="{{ asset(site_setting('logo')) }}"
+                src="{{ site_setting_image('logo') }}"
                 alt="Logo {{ site_setting('name') }}"
                 class="h-10 w-10 rounded-full border-2 border-white/20 object-cover shadow-sm"
             >
@@ -50,6 +55,43 @@
                     {{ $link['label'] }}
                 </a>
             @endforeach
+
+            @guest
+                <a
+                    href="{{ route('login') }}"
+                    class="ml-1 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-200"
+                    :class="scrolled ? '{{ $loginSolid }}' : '{{ $loginFloating }}'"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                    Masuk
+                </a>
+            @else
+                <div class="ml-1 flex items-center gap-1">
+                    @if (auth()->user()->isAdmin())
+                        <a
+                            href="{{ route('admin.dashboard') }}"
+                            class="inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-bold transition-colors duration-200"
+                            :class="scrolled ? 'bg-accent-500 text-white hover:bg-accent-600' : 'bg-accent-400/20 text-accent-300 hover:bg-accent-400/30'"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25"/>
+                            </svg>
+                            {{ auth()->user()->isOwner() ? 'Dashboard Owner' : 'Dashboard Admin' }}
+                        </a>
+                    @endif
+                    <span class="hidden max-w-32 truncate px-2 text-sm font-semibold xl:inline" :class="scrolled ? 'text-navy-800' : 'text-navy-100'">
+                        Halo, {{ Str::limit(auth()->user()->name, 14) }}
+                    </span>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-200" :class="scrolled ? '{{ $loginSolid }}' : '{{ $loginFloating }}'" aria-label="Keluar">
+                            Keluar
+                        </button>
+                    </form>
+                </div>
+            @endguest
 
             <a
                 href="{{ $waUrl ?? route('contact') }}"
@@ -127,6 +169,26 @@
                         {{ $link['label'] }}
                     </a>
                 @endforeach
+                @guest
+                    <a href="{{ route('login') }}" @click="open = false" class="rounded-xl px-4 py-3 text-base font-semibold text-navy-800 transition hover:bg-cream-100">
+                        Masuk / Daftar
+                    </a>
+                @else
+                    @if (auth()->user()->isAdmin())
+                        <a href="{{ route('admin.dashboard') }}" @click="open = false" class="flex items-center justify-between rounded-xl bg-accent-500 px-4 py-3 text-base font-bold text-white transition hover:bg-accent-600">
+                            {{ auth()->user()->isOwner() ? 'Dashboard Owner' : 'Dashboard Admin' }}
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25"/>
+                            </svg>
+                        </a>
+                    @endif
+                    <form method="POST" action="{{ route('logout') }}" class="px-4">
+                        @csrf
+                        <button type="submit" class="w-full rounded-xl px-4 py-3 text-left text-base font-semibold text-red-600 transition hover:bg-red-50">
+                            Keluar ({{ Str::limit(auth()->user()->name, 20) }})
+                        </button>
+                    </form>
+                @endguest
             </nav>
 
             <div class="mt-auto border-t border-cream-200 px-6 py-6">

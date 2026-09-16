@@ -25,7 +25,7 @@
         <div class="container-x grid items-center gap-12 lg:grid-cols-2 lg:gap-16" data-reveal>
             <div>
                 <img
-                    src="{{ asset(site_setting('about')) }}"
+                    src="{{ site_setting_image('about') }}"
                     alt="Suasana dan cerita {{ site_setting('name') }}"
                     class="w-full rounded-3xl shadow-card ring-1 ring-navy-950/5"
                 >
@@ -185,7 +185,7 @@
                 @foreach ($galleryPhotos as $gallery)
                     <a href="{{ route('gallery') }}" class="group relative block overflow-hidden rounded-2xl" aria-label="Lihat foto: {{ $gallery->title }}">
                         <img
-                            src="{{ asset($gallery->image) }}"
+                            src="{{ $gallery->image_url }}"
                             alt="{{ $gallery->title }}"
                             class="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105"
                             loading="lazy"

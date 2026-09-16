@@ -17,6 +17,8 @@ class Menu extends Model
         'description',
         'price',
         'image',
+        'image_data',
+        'image_mime',
         'is_featured',
         'is_active',
     ];
@@ -26,6 +28,11 @@ class Menu extends Model
         'is_featured' => 'boolean',
         'is_active' => 'boolean',
     ];
+
+    public function getImageUrlAttribute(): string
+    {
+        return route('media.show', ['model' => 'menu', 'ref' => $this->id]);
+    }
 
     public function scopeActive($query)
     {

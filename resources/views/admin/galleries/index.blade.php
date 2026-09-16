@@ -26,7 +26,7 @@
     <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
         @forelse ($galleries as $gallery)
             <div class="overflow-hidden rounded-3xl border border-cream-200 bg-white shadow-sm">
-                <img src="{{ asset($gallery->image) }}" alt="{{ $gallery->title }}" class="aspect-[4/3] w-full object-cover">
+                <img src="{{ $gallery->image_url }}" alt="{{ $gallery->title }}" onerror="this.onerror=null;this.src='/images/gallery/gallery-01.svg'" class="aspect-[4/3] w-full object-cover">
                 <div class="p-5">
                     <div class="flex items-start justify-between gap-3">
                         <div>

@@ -34,10 +34,13 @@ class GalleryController extends Controller
         $data = $request->validate([
             'title' => ['required', 'string', 'max:150'],
             'category' => ['required', 'in:Makanan,Tempat,Suasana,Aktivitas'],
-            'image' => ['required', 'image', 'mimes:jpg,jpeg,png,webp,svg', 'max:2048'],
+            'image' => ['required', 'image', 'mimes:jpg,jpeg,png,webp,svg', 'max:10240'],
         ]);
 
-        $data['image'] = store_image($request->file('image'), 'gallery', $data['title']);
+        $file = $request->file('image');
+        $data['image_data'] = base64_encode((string) $file->get());
+        $data['image_mime'] = $file->getMimeType();
+        $data['image'] = store_image($file, 'gallery', $data['title']);
 
         Gallery::create($data);
 
@@ -54,14 +57,17 @@ class GalleryController extends Controller
         $data = $request->validate([
             'title' => ['required', 'string', 'max:150'],
             'category' => ['required', 'in:Makanan,Tempat,Suasana,Aktivitas'],
-            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp,svg', 'max:2048'],
+            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp,svg', 'max:10240'],
         ]);
 
         if ($request->hasFile('image')) {
+            $file = $request->file('image');
             delete_image($gallery->image);
-            $data['image'] = store_image($request->file('image'), 'gallery', $data['title']);
+            $data['image_data'] = base64_encode((string) $file->get());
+            $data['image_mime'] = $file->getMimeType();
+            $data['image'] = store_image($file, 'gallery', $data['title']);
         } else {
-            unset($data['image']);
+            unset($data['image'], $data['image_data'], $data['image_mime']);
         }
 
         $gallery->update($data);

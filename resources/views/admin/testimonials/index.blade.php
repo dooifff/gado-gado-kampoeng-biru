@@ -41,7 +41,7 @@
                             <td class="px-5 py-3">
                                 <div class="flex items-center gap-3">
                                     @if ($testimonial->image)
-                                        <img src="{{ asset($testimonial->image) }}" alt="{{ $testimonial->name }}" class="h-11 w-11 shrink-0 rounded-full border border-cream-200 object-cover">
+                                        <img src="{{ $testimonial->image_url }}" alt="{{ $testimonial->name }}" onerror="this.onerror=null;this.style.display='none'" class="h-11 w-11 shrink-0 rounded-full border border-cream-200 object-cover">
                                     @else
                                         <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-navy-950 text-sm font-bold text-white">
                                             {{ strtoupper(substr($testimonial->name, 0, 1)) }}

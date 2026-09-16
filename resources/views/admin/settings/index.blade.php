@@ -43,24 +43,30 @@
                             class="w-full rounded-xl border border-cream-300 bg-white px-4 py-2.5 text-sm text-navy-950 outline-none transition focus:border-accent-500 focus:ring-2 focus:ring-accent-500/30">{{ old('description', site_setting('description')) }}</textarea>
                     </div>
                     <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                        <div>
+                        <div x-data="{ preview: '{{ site_setting_image('logo') }}' }">
                             <label for="logo" class="mb-1.5 block text-sm font-semibold text-navy-800">Upload Logo (opsional)</label>
+                            <img :src="preview || '/images/logo/logo.svg'" alt="Pratinjau logo" class="mb-3 h-20 w-20 rounded-full border border-cream-200 bg-cream-50 object-cover shadow-sm">
                             <input type="file" name="logo" id="logo" accept="image/*"
+                                @change="const f=$event.target.files[0]; if(f){ const r=new FileReader(); r.onload=e=>preview=e.target.result; r.readAsDataURL(f); }"
                                 class="w-full text-sm text-navy-700 file:mr-3 file:rounded-xl file:border-0 file:bg-navy-950 file:px-4 file:py-2.5 file:text-sm file:font-bold file:text-white hover:file:bg-navy-800">
-                            <p class="mt-1 text-xs text-navy-700">Saat ini: <code class="rounded bg-cream-100 px-1.5 py-0.5">{{ site_setting('logo') }}</code></p>
+                            <p class="mt-1 text-xs text-navy-700">Maks 10 MB. JPG, PNG, WEBP, atau SVG.</p>
                         </div>
-                        <div>
+                        <div x-data="{ preview: '{{ site_setting_image('hero') }}' }">
                             <label for="hero" class="mb-1.5 block text-sm font-semibold text-navy-800">Upload Foto Utama (opsional)</label>
+                            <img :src="preview || '/images/hero/hero.svg'" alt="Pratinjau foto utama" class="mb-3 h-20 w-full rounded-xl border border-cream-200 bg-cream-50 object-cover">
                             <input type="file" name="hero" id="hero" accept="image/*"
+                                @change="const f=$event.target.files[0]; if(f){ const r=new FileReader(); r.onload=e=>preview=e.target.result; r.readAsDataURL(f); }"
                                 class="w-full text-sm text-navy-700 file:mr-3 file:rounded-xl file:border-0 file:bg-navy-950 file:px-4 file:py-2.5 file:text-sm file:font-bold file:text-white hover:file:bg-navy-800">
-                            <p class="mt-1 text-xs text-navy-700">Saat ini: <code class="rounded bg-cream-100 px-1.5 py-0.5">{{ site_setting('hero') }}</code></p>
+                            <p class="mt-1 text-xs text-navy-700">Maks 10 MB. JPG, PNG, WEBP, atau SVG.</p>
                         </div>
                     </div>
-                    <div>
+                    <div x-data="{ preview: '{{ site_setting_image('about') }}' }">
                         <label for="about" class="mb-1.5 block text-sm font-semibold text-navy-800">Upload Foto Halaman Tentang (opsional)</label>
+                        <img :src="preview || '/images/about/about.svg'" alt="Pratinjau foto tentang" class="mb-3 h-24 w-full rounded-xl border border-cream-200 bg-cream-50 object-cover">
                         <input type="file" name="about" id="about" accept="image/*"
+                            @change="const f=$event.target.files[0]; if(f){ const r=new FileReader(); r.onload=e=>preview=e.target.result; r.readAsDataURL(f); }"
                             class="w-full text-sm text-navy-700 file:mr-3 file:rounded-xl file:border-0 file:bg-navy-950 file:px-4 file:py-2.5 file:text-sm file:font-bold file:text-white hover:file:bg-navy-800">
-                        <p class="mt-1 text-xs text-navy-700">Saat ini: <code class="rounded bg-cream-100 px-1.5 py-0.5">{{ site_setting('about') }}</code></p>
+                        <p class="mt-1 text-xs text-navy-700">Maks 10 MB. JPG, PNG, WEBP, atau SVG.</p>
                     </div>
                 </div>
             </section>

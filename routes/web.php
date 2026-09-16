@@ -8,8 +8,10 @@ use App\Http\Controllers\Admin\MenuController as AdminMenuController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TestimonialController as AdminTestimonialController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MediaController;
 use App\Http\Controllers\MenuController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +32,27 @@ Route::get('/menu', [MenuController::class, 'index'])->name('menu');
 Route::get('/galeri', [GalleryController::class, 'index'])->name('gallery');
 
 Route::get('/kontak', [ContactController::class, 'index'])->name('contact');
+
+Route::get('/media/{model}/{ref}', [MediaController::class, 'show'])
+    ->whereIn('model', ['menu', 'gallery', 'testimonial', 'setting'])
+    ->name('media.show');
+
+/*
+|--------------------------------------------------------------------------
+| Autentikasi Pelanggan
+|--------------------------------------------------------------------------
+*/
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [CustomerAuthController::class, 'showLogin'])->name('login');
+    Route::post('/login', [CustomerAuthController::class, 'login'])->name('login.submit')->middleware('throttle:5,1');
+    Route::get('/register', [CustomerAuthController::class, 'showRegister'])->name('register');
+    Route::post('/register', [CustomerAuthController::class, 'register'])->name('register.submit')->middleware('throttle:10,1');
+
+    Route::get('/login/google', [CustomerAuthController::class, 'redirectToGoogle'])->name('login.google');
+    Route::get('/login/google/callback', [CustomerAuthController::class, 'handleGoogleCallback'])->name('login.google.callback');
+});
+
+Route::post('/logout', [CustomerAuthController::class, 'logout'])->name('logout')->middleware('auth');
 
 /*
 |--------------------------------------------------------------------------

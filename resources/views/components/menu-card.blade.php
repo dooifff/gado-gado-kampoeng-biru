@@ -3,8 +3,9 @@
 <article class="card group overflow-hidden transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-navy-950/10">
     <div class="relative overflow-hidden">
         <img
-            src="{{ asset($menu->image) }}"
+            src="{{ $menu->image_url }}"
             alt="{{ $menu->name }}"
+            onerror="this.onerror=null;this.src='/images/logo/logo.svg'"
             class="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105"
             loading="lazy"
         >

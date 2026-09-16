@@ -14,7 +14,7 @@
     <meta property="og:site_name" content="{{ site_setting('name') }}">
     <meta property="og:title" content="@yield('og_title', site_setting('name'))">
     <meta property="og:description" content="@yield('og_description', site_setting('description'))">
-    <meta property="og:image" content="{{ asset(site_setting('hero')) }}">
+    <meta property="og:image" content="{{ site_setting_image('hero') }}">
     <meta property="og:locale" content="id_ID">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,6 +35,15 @@
     </a>
 
     <x-navbar />
+
+    @if (session('success'))
+        <div x-data="{ shown: true }" x-cloak x-show="shown" x-init="setTimeout(() => shown = false, 4000)"
+             x-transition.opacity
+             class="fixed inset-x-0 top-20 z-[60] mx-auto max-w-md rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-center text-sm font-semibold text-emerald-800 shadow-card"
+             role="status">
+            {{ session('success') }}
+        </div>
+    @endif
 
     <main id="main" class="flex-1">
         @yield('content')

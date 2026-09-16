@@ -24,6 +24,17 @@ if (! function_exists('site_setting_array')) {
     }
 }
 
+if (! function_exists('site_setting_image')) {
+    /**
+     * URL gambar pengaturan situs (logo/hero/about). Gambar disajikan dari
+     * database (BLOB) melalui route media, dengan fallback ke file disk.
+     */
+    function site_setting_image(string $key): string
+    {
+        return route('media.show', ['model' => 'setting', 'ref' => $key]);
+    }
+}
+
 if (! function_exists('wa_link')) {
     /**
      * Membuat link WhatsApp wa.me. Mengembalikan null jika nomor customer

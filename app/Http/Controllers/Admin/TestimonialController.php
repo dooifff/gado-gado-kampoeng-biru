@@ -35,13 +35,18 @@ class TestimonialController extends Controller
             'name' => ['required', 'string', 'max:120'],
             'message' => ['required', 'string', 'max:1000'],
             'rating' => ['required', 'integer', 'between:1,5'],
-            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp,svg', 'max:2048'],
+            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp,svg', 'max:10240'],
             'is_active' => ['filled'],
         ]);
 
-        $data['image'] = $request->hasFile('image')
-            ? store_image($request->file('image'), 'testimonials', $data['name'])
-            : null;
+        $data['image'] = null;
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $data['image_data'] = base64_encode((string) $file->get());
+            $data['image_mime'] = $file->getMimeType();
+            $data['image'] = store_image($file, 'testimonials', $data['name']);
+        }
 
         $data['is_active'] = $request->boolean('is_active');
 
@@ -61,15 +66,18 @@ class TestimonialController extends Controller
             'name' => ['required', 'string', 'max:120'],
             'message' => ['required', 'string', 'max:1000'],
             'rating' => ['required', 'integer', 'between:1,5'],
-            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp,svg', 'max:2048'],
+            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp,svg', 'max:10240'],
             'is_active' => ['filled'],
         ]);
 
         if ($request->hasFile('image')) {
+            $file = $request->file('image');
             delete_image($testimonial->image);
-            $data['image'] = store_image($request->file('image'), 'testimonials', $data['name']);
+            $data['image'] = store_image($file, 'testimonials', $data['name']);
+            $data['image_data'] = base64_encode((string) $file->get());
+            $data['image_mime'] = $file->getMimeType();
         } else {
-            unset($data['image']);
+            unset($data['image'], $data['image_data'], $data['image_mime']);
         }
 
         $data['is_active'] = $request->boolean('is_active');

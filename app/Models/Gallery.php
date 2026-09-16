@@ -13,7 +13,14 @@ class Gallery extends Model
         'title',
         'category',
         'image',
+        'image_data',
+        'image_mime',
     ];
+
+    public function getImageUrlAttribute(): string
+    {
+        return route('media.show', ['model' => 'gallery', 'ref' => $this->id]);
+    }
 
     public function scopeByCategory($query, string $category)
     {

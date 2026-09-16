@@ -43,9 +43,9 @@ class SettingController extends Controller
             'hours_day.*' => ['required', 'string', 'max:100'],
             'hours_time' => ['required', 'array'],
             'hours_time.*' => ['required', 'string', 'max:100'],
-            'logo' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp,svg', 'max:2048'],
-            'hero' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp,svg', 'max:2048'],
-            'about' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp,svg', 'max:2048'],
+            'logo' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp,svg', 'max:10240'],
+            'hero' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp,svg', 'max:10240'],
+            'about' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp,svg', 'max:10240'],
         ]);
 
         foreach ($this->fields as $key) {
@@ -72,14 +72,18 @@ class SettingController extends Controller
                 continue;
             }
 
+            $file = $request->file($key);
+
             $old = Setting::where('key', $key)->value('value');
             if ($old) {
                 delete_image($old);
             }
 
-            $path = store_image($request->file($key), 'settings', $key);
+            $path = store_image($file, 'settings', $key);
 
             Setting::updateOrCreate(['key' => $key], ['value' => $path, 'group' => 'general']);
+            Setting::updateOrCreate(['key' => $key . '_data'], ['value' => base64_encode((string) $file->get()), 'group' => 'general']);
+            Setting::updateOrCreate(['key' => $key . '_mime'], ['value' => $file->getMimeType(), 'group' => 'general']);
         }
     }
 }

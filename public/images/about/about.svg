@@ -1,24 +1,16 @@
-<rect width="1200" height="1000" fill="url(#bg)"/>
-<rect y="0" width="1200" height="550" fill="#EDE4CE"/>
-<circle cx="192" cy="80" r="150" fill="url(#glow)"/>
-<circle cx="1020" cy="90" r="240" fill="#16293E" opacity="0.06"/>
-<rect x="144" y="120" width="360" height="300" rx="10" fill="#D9E4EE"/>
-<line x1="324" y1="120" x2="324" y2="420" stroke="#AFC6DA" stroke-width="6"/>
-<line x1="144" y1="270" x2="504" y2="270" stroke="#AFC6DA" stroke-width="6"/>
-<rect x="156" y="132" width="336" height="276" rx="8" fill="#EAF1FA"/>
-<g>
-  <line x1="600" y1="50" x2="600" y2="200" stroke="#16293E" stroke-width="4" stroke-opacity="0.7"/>
-  <path d="M 566 200 L 634 200 L 624 420 L 576 420 Z" fill="#16293E"/>
-  <circle cx="600" cy="380" r="10" fill="#FFF4DC" opacity="0.9"/>
-</g>
-<rect x="744" y="300" width="216" height="216" rx="12" fill="#CFA87C"/>
-<rect x="816.0000000000001" y="240" width="72" height="60" rx="6" fill="#C09A70"/>
-<ellipse cx="852" cy="360" rx="54" ry="60" fill="#8FAE6E"/>
-<ellipse cx="852" cy="360" rx="36" ry="42.00000000000001" fill="#54783D"/>
-<ellipse cx="600" cy="720" rx="504" ry="80" fill="#E9DCC0"/>
-<ellipse cx="600" cy="720" rx="408.00000000000006" ry="64" fill="#F4ECDB"/>
-<ellipse cx="492" cy="660" rx="240" ry="50" fill="#FFFFFF" stroke="#D9C9A6" stroke-width="3"/>
-<ellipse cx="708" cy="700" rx="204.00000000000003" ry="44" fill="#FFFFFF" stroke="#D9C9A6" stroke-width="3"/>
-<path d="M 444 620 Q 492 520 564 620 Z" fill="#6D9450"/>
-<text x="600" y="38" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="600" letter-spacing="3" fill="#E89633" opacity="0.9">KAMPOENG BIRU</text>
-<text x="600" y="620" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="19" font-weight="700" letter-spacing="4" fill="#16293E" opacity="0.55">KAMPOENG BIRU</text><text x="600" y="660" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="500" letter-spacing="2" fill="#16293E" opacity="0.35">GANTI DENGAN FOTO ASLI</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400">
+  <defs>
+    <linearGradient id="abg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B1D3A"/>
+      <stop offset="1" stop-color="#12345F"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="400" rx="48" fill="url(#abg)"/>
+  <rect x="60" y="72" width="240" height="256" rx="28" fill="#FFF7E8"/>
+  <circle cx="180" cy="176" r="64" fill="#E89633"/>
+  <circle cx="180" cy="176" r="46" fill="#FFF7E8"/>
+  <text x="180" y="192" text-anchor="middle" font-family="Georgia, serif" font-weight="bold" font-size="36" fill="#B86A1F">GG</text>
+  <rect x="360" y="72" width="220" height="96" rx="22" fill="#E89633"/>
+  <text x="470" y="136" text-anchor="middle" font-family="Georgia, serif" font-weight="bold" font-size="26" fill="#FFF7E8">Kampoeng Biru</text>
+  <rect x="360" y="196" width="220" height="96" rx="22" fill="#FFF7E8"/>
+  <text x="470" y="260" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#B86A1F">Rasa Khas Kampoeng</text>

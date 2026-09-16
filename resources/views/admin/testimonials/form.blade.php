@@ -64,12 +64,12 @@
 
         <div class="rounded-3xl border border-cream-200 bg-white p-6 shadow-sm lg:self-start">
             <h2 class="mb-5 font-display text-lg font-bold text-navy-950">Foto Pengunjung</h2>
-            <div x-data="{ preview: @js($testimonial->image ? asset($testimonial->image) : null) }">
+            <div x-data="{ preview: @js($testimonial->image ? $testimonial->image_url : null) }">
                 <img :src="preview ?? '/images/logo/logo.svg'" alt="Pratinjau foto pengunjung" class="aspect-square w-full rounded-full border border-cream-200 bg-cream-50 object-cover">
                 <input type="file" name="image" id="image" accept="image/*"
                     @change="const f = $event.target.files[0]; if (f) { const r = new FileReader(); r.onload = e => preview = e.target.result; r.readAsDataURL(f); }"
                     class="mt-4 w-full text-sm text-navy-700 file:mr-3 file:rounded-xl file:border-0 file:bg-navy-950 file:px-4 file:py-2.5 file:text-sm file:font-bold file:text-white hover:file:bg-navy-800">
-                <p class="mt-2 text-xs text-navy-700">Opsional. JPG, PNG, WEBP, atau SVG. Maks 2 MB.</p>
+                <p class="mt-2 text-xs text-navy-700">Opsional. JPG, PNG, WEBP, atau SVG. Maks 10 MB.</p>
             </div>
         </div>
     </form>

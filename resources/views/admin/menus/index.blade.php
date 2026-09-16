@@ -41,7 +41,7 @@
                         <tr class="transition hover:bg-cream-50/60">
                             <td class="px-5 py-3">
                                 <div class="flex items-center gap-3">
-                                    <img src="{{ asset($menu->image) }}" alt="{{ $menu->name }}" class="h-11 w-11 shrink-0 rounded-xl border border-cream-200 object-cover">
+                                    <img src="{{ $menu->image_url }}" alt="{{ $menu->name }}" onerror="this.onerror=null;this.src='/images/logo/logo.svg'" class="h-11 w-11 shrink-0 rounded-xl border border-cream-200 object-cover">
                                     <div class="min-w-0">
                                         <p class="truncate font-bold text-navy-950">{{ $menu->name }}</p>
                                         <p class="truncate text-xs text-navy-700">{{ Str::limit($menu->description, 40) }}</p>

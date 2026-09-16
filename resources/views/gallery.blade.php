@@ -84,7 +84,7 @@
                     aria-label="Tampilan foto galeri"
                     @click="openIndex = null"
                 >
-                    <template x-for="(photo, i) in {{ json_encode($galleries->pluck('image')->all()) }}" :key="i" hidden>
+                    <template x-for="(photo, i) in {{ json_encode($galleries->pluck('image_url')->all()) }}" :key="i" hidden>
                         <figure
                             class="max-w-4xl"
                             x-show="openIndex === i"
